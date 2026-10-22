@@ -1,7 +1,10 @@
 # Проект FitLife - MVP версия 1.0
 
+WATER_PER_KG = 30
+ML_IN_LITER = 1000
+
 # Приветствие помощника, описание работы
-print('Привет! 🙋')
+print('Привет!')
 print('Меня зовут Иван. Как жизнь?')
 print()
 print('Я твой интерактивный помощник и советник в FitLife.')
@@ -25,13 +28,13 @@ while True:
 
     try:
         if user_age < 18 or user_age > 130:
-            print('❌ Наша программа не рассчитана на твой возраст')
+            print('Наша программа не рассчитана на твой возраст')
             exit()
         else:
             print('Записал, спасибо!')
             break
     except ValueError:
-        print('❌ Введи целое число')
+        print('Введи целое число')
 
 # Проверяем допустимость значения веса пользователя
 while True:
@@ -39,7 +42,7 @@ while True:
 
     try:
         if user_weight < 10 or user_weight > 200:
-            print('❌ Наша программа не рассчитана на твой вес')
+            print('Наша программа не рассчитана на твой вес')
             exit()
         else:
             print('Спасибо, записал!')
@@ -53,7 +56,7 @@ while True:
 
     try:
         if user_height < 0.3 or user_height > 3:
-            print('❌ Наша программа не рассчитана на твой рост')
+            print('Наша программа не рассчитана на твой рост')
             exit()
         else:
             print('Спасибо! Все параметры получены, готов посчитать')
@@ -64,10 +67,10 @@ while True:
 
 bmi = round(user_weight / (user_height ** 2), 1)
 
-water_ml = round(user_weight * 30 / 1000, 2)
+water_ml = round(user_weight * WATER_PER_KG / ML_IN_LITER, 2)
 
 print(f'Отчет для пользователя {user_name} ({user_age} лет)')
 print(f'Твой Индекс Массы Тела: {bmi}')
 print(f'Рекомендуемая норма потребления воды: {water_ml} л. в день')
 print()
-print('Обращайся еще! ✅')
+print('Обращайся еще!')
